@@ -26,3 +26,16 @@ nav li a {
     color: #333;
     font-weight: bold;
 }
+
+/* Responsive styles for mobile */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.5em;
+        align-items: center;
+    }
+    nav li {
+        width: 100%;
+        text-align: center;
+    }
+}
