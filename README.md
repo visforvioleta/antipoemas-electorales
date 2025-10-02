@@ -54,3 +54,5 @@ Fue en base a cada uno de estos antipoemas que se generó un [sitio web](https:/
 La autoría de los textos y la construcción/contenido del sitio web son propios de la inteligencia artificial (tanto de copilot como del chat inteligente de visual studio code).
 
 ![Texto predictivo](assets/textopredictivo.png)
+
+Este texto "READMe.md" por el contrario fue escrito por mí, [Violeta Alanoca](https://www.instagram.com/visforvioleta_/)
