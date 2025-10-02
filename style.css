@@ -14,11 +14,16 @@ h1 {
 
 nav ul {
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping for tablet */
     gap: 1em;
     list-style: none;
     padding: 0;
     justify-content: center;
     margin: 0 0 2em 0;
+}
+
+nav li {
+    flex: 0 1 auto;
 }
 
 nav li a {
@@ -27,15 +32,38 @@ nav li a {
     font-weight: bold;
 }
 
-/* Responsive styles for mobile */
+/* Tablet: 2 rows of 4 options */
+@media (max-width: 900px) {
+    nav ul {
+        flex-wrap: wrap;
+        gap: 1em 2em;
+        max-width: 500px;
+    }
+    nav li {
+        flex: 0 1 22%; /* 4 per row, with gap */
+        text-align: center;
+    }
+}
+
+/* Mobile: 1 column */
 @media (max-width: 600px) {
     nav ul {
         flex-direction: column;
+        flex-wrap: nowrap;
         gap: 0.5em;
         align-items: center;
+        max-width: none;
     }
     nav li {
+        flex: 1 1 100%;
         width: 100%;
         text-align: center;
     }
+}
+
+p {
+    max-width: 600px;
+    text-align: center;
+    margin: 0 1em 2em 1em;
+    padding: 5em;
 }
