@@ -5,6 +5,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
+padding: 0 2em;    
     font-family: sans-serif;
 }
 
@@ -59,11 +60,4 @@ nav li a {
         width: 100%;
         text-align: center;
     }
-}
-
-p {
-    max-width: 600px;
-    text-align: center;
-    margin: 0 1em 2em 1em;
-    padding: 5em;
 }
