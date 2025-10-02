@@ -46,8 +46,11 @@ Sin ánimos de juzgar la herramienta cada poema me pareció grandilocuente y alg
 Pienso entonces, ¿por qué mejor no hacer lo contrario? Subvertir las maravillas que aborda cada programa, sobretodo con las ganas de observar como cuestiona o interpela la maquina. Aunque sí para que no estuviese tan a la deriva le entregue una referencia: [Nicanor Parra](https://www.nicanorparra.uchile.cl/antologia/poemasyantipoemas/index.html).
 
 ![Antipoema en base al programa de Evelyn Matthei 2025](assets/sextarespuesta.png)
-![Antipoema en base al programa de Johannes Kaiser](assets/septimarespuesta.png)
+![Antipoema en base al programa de Johannes Kaiser](assets/septimorespuesta.png)
 
-Fue en base a cada uno de estos antipoemas que se generó un sitio web que los recopilara. El sitio aún en construccción pretende alimentarse proximamente de más material, como las campañas audiovisuales que en un par de semanas se presentarán.
+
+Fue en base a cada uno de estos antipoemas que se generó un [sitio web](https://visforvioleta.github.io/antipoemas-electorales/index.html) que los recopilara. El sitio aún en construccción pretende alimentarse proximamente de más material, como las campañas audiovisuales que en un par de semanas se presentarán.
 
 La autoría de los textos y la construcción/contenido del sitio web son propios de la inteligencia artificial (tanto de copilot como del chat inteligente de visual studio code).
+
+![Texto predictivo](assets/textopredictivo.png)
