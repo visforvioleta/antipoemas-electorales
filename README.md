@@ -18,13 +18,36 @@ Descarto entonces en una segunda etapa a chat gpt, ya que al entregar un primer 
 
 Me quedo entonces con copilot.
 
-![Primera respuesta](assets/primerarespuesta.png)
+![Primera respuesta Introductoria al Experimento](assets/primerarespuesta.png)
 
 
+Sin ninguna dirección ante su consulta le mando el pdf, y me devuelve:
+
+![Resumen del plan de gobierno Harold Mayne-Nicholls](assets/segundarespuesta.png)
+![Nube de palabras del plan de gobierno de Eduardo Artes](assets/tercerarespuesta.png)
 
 
+Cada cierto tiempo me encuentro con algunos problemas:
+![Yo siendo insistente](assets/problemafinal.png)
+
+Quizás las plataforma no se la puede. La entiendo, yo tampoco podría. A veces debo cortar el texto en más partes para que haga el análisis... 200 páginas, quién leería 200 páginas de fanfarroneria.
+
+Le insisto un poco más y logra su cometido.
+![Logrando lo imposible](assets/problemasolucion.png)
 
 
-Este proyecto presenta una serie de antipoemas electorales publicados en formato web.  
-Puedes explorarlos aquí: [Sitio web del proyecto](https://visforvioleta.github.io/antipoemas-electorales/)  
-O revisar el código fuente en el [repositorio de GitHub](https://github.com/visforvioleta/antipoemas-electorales).
+Le pido entonces que en base al texto resumido me haga un poema.
+
+![Poema en base al programa de Marco Enríquez-Ominami](assets/quintarespuesta.png)
+![Poema en base al programa de Jeannette Jara](assets/jarapoema.png)
+
+
+Sin ánimos de juzgar la herramienta cada poema me pareció grandilocuente y algo forzado. ¿Habrá sido mi modo de interactuar con ella?
+Pienso entonces, ¿por qué mejor no hacer lo contrario? Subvertir las maravillas que aborda cada programa, sobretodo con las ganas de observar como cuestiona o interpela la maquina. Aunque sí para que no estuviese tan a la deriva le entregue una referencia: [Nicanor Parra](https://www.nicanorparra.uchile.cl/antologia/poemasyantipoemas/index.html).
+
+![Antipoema en base al programa de Evelyn Matthei 2025](assets/sextarespuesta.png)
+![Antipoema en base al programa de Johannes Kaiser](assets/septimarespuesta.png)
+
+Fue en base a cada uno de estos antipoemas que se generó un sitio web que los recopilara. El sitio aún en construccción pretende alimentarse proximamente de más material, como las campañas audiovisuales que en un par de semanas se presentarán.
+
+La autoría de los textos y la construcción/contenido del sitio web son propios de la inteligencia artificial (tanto de copilot como del chat inteligente de visual studio code).
