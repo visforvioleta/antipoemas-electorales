@@ -1,63 +1,504 @@
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-padding: 0 2em;    
-    font-family: sans-serif;
+/* ==========================
+   style.css completo
+   Basado en tu CSS original + cambios solicitados:
+   - Menú en 2 corridas (4x2) en pantallas anchas
+   - Pasa a 2 columnas en pantallas medianas
+   - Por debajo de 900px el header se vuelve vertical y el menú es visible en columna
+   - Header blanco, título negro, enlaces gris; línea roja bajo header
+   ========================== */
+
+/* Variables de color (adaptadas) */
+:root{
+  --primary: #006fb3;
+  --accent: #a8b7c7;
+  --accent-dark: #0a132d;
+  --uc-primary: #ed3a4f;   /* rojo para la línea inferior */
+  --bg-overlay: rgba(10,19,45,0.45);
+  --text-on-dark: #ffffff;
+  --header-height: 76px;
+  --font-sans: 'tahoma', sans-serif;
+  --menu-gray: #6c757d;   /* color de los enlaces */
+  --menu-gray-hover: #343a40;
+  --title-black: #111111;
 }
 
-h1 {
-    text-align: center;
+/* Reset y base */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:var(--font-sans);color:var(--text-on-dark)
+    ;background:#000}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ==========================
+   HEADER
+   ========================== */
+/* Header básico */
+.site-header{
+  position:fixed;
+  top:0; left:0; right:0;
+  background: #ffffff;               /* header blanco */
+  z-index:100;
+  border-bottom: 4px solid var(--uc-primary);  /* línea roja debajo del header */
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
 }
 
-nav ul {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping for tablet */
-    gap: 1em;
-    list-style: none;
-    padding: 0;
-    justify-content: center;
-    margin: 0 0 2em 0;
+/* Alineación interior y espaciado */
+.header-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:16px 20px;                 /* ajusta altura del header */
 }
 
-nav li {
-    flex: 0 1 auto;
+/* Marca (logo + título) */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
 }
 
-nav li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
+/* Logo suelto, mayor tamaño, sin caja */
+.brand-logo{
+  width:96px;         /* tamaño más grande: ajusta si necesitas mayor/menor */
+  height:auto;
+  object-fit:contain;
+  display:block;
+  background: transparent;  /* sin fondo rojo ni caja */
+  border-radius: 4px;
 }
 
-/* Tablet: 2 rows of 4 options */
+/* Título principal junto al logo: todo en negrita y negro */
+.brand-title{
+  font-size:20px;      /* ajusta escala según el logo */
+  line-height:1;
+  margin:0;
+  font-weight:700;
+  color:var(--title-black);       /* título negro */
+  letter-spacing:0.2px;
+}
+
+/* ==========================
+   NAV: diseño en dos corridas en pantallas anchas
+   ========================== */
+.main-nav {
+  display: block;
+}
+
+/* convertir el UL en grid: 4 columnas, 2 filas por defecto */
+.main-nav ul{
+  display: grid;
+  grid-template-columns: repeat(4, auto); /* 4 columnas */
+  grid-auto-rows: auto;                    /* filas automáticas */
+  gap: 6px 12px;                           /* fila-gap y columna-gap */
+  align-items: center;
+  justify-content: end;                   /* alinear el grid a la derecha */
+  margin: 0;
+  padding: 0;
+  min-width: 520px;
+}
+
+/* cada item mantiene el estilo de enlace */
+.main-nav li{ list-style:none; }
+.main-nav a{
+  display:inline-block;
+  color:var(--menu-gray);
+  font-weight:500;
+  font-size:14px;
+  padding:8px 10px;
+  border-radius:6px;
+  transition: background .12s ease, color .12s ease, transform .08s ease;
+}
+
+/* Hover/Focus */
+.main-nav a:hover,
+.main-nav a:focus{
+  background: rgba(0,0,0,0.04);
+  color: var(--menu-gray-hover);
+  transform: translateY(-2px);
+  text-decoration:none;
+  outline:none;
+}
+
+/* estilo hover alternativo sencillo (si lo prefieres) */
+.main-nav a:hover { color: var(--menu-gray-hover); }
+
+/* aumentar gap en pantallas muy anchas */
+@media (min-width: 1200px) {
+  .main-nav ul { gap: 10px 18px; min-width: 640px; }
+}
+
+/* Punto intermedio: 2 columnas x 4 filas */
+@media (max-width: 1100px) and (min-width: 721px) {
+  .main-nav ul{
+    grid-template-columns: repeat(2, auto);
+    justify-content: end;
+    min-width: 420px;
+    gap: 8px 12px;
+  }
+}
+
+/* ==========================
+   Ajustes para que el menú baje y sea vertical por debajo de 900px
+   ========================== */
 @media (max-width: 900px) {
-    nav ul {
-        flex-wrap: wrap;
-        gap: 1em 2em;
-        max-width: 500px;
-    }
-    nav li {
-        flex: 0 1 22%; /* 4 per row, with gap */
-        text-align: center;
-    }
+  .header-inner{
+    /* pasar de fila a columna: logo arriba, menú debajo */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  /* centrar marca en móvil y reducir logo */
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    justify-content:flex-start;
+  }
+
+  .brand-logo{
+    width:84px; /* ajusta si quieres más grande/pequeño */
+    height:auto;
+  }
+
+  .brand-title{
+    font-size:18px;
+    font-weight:700;
+    color:var(--title-black);
+  }
+
+  /* Nav ahora ocupa toda la anchura y los items en columna */
+  .main-nav{
+    width:100%;
+    order: 2; /* asegurar que vaya debajo de la marca */
+    display:block;
+  }
+
+  .main-nav ul{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    align-items:stretch;
+    justify-content:flex-start;
+    padding: 8px 0;
+    margin: 0;
+    width:100%;
+  }
+
+  .main-nav li{ width:100%; }
+
+  .main-nav a{
+    display:block;
+    width:100%;
+    padding:10px 12px;
+    color:var(--menu-gray);
+    background: transparent;
+    border-radius:6px;
+    text-align:left;
+  }
+
+  .main-nav a:hover,
+  .main-nav a:focus{
+    background: rgba(0,0,0,0.04);
+    color:var(--menu-gray-hover);
+    transform:none;
+  }
+
+  /* Añadir padding-top al body para que el contenido no quede tapado por el header fijo
+     Ajusta el valor si cambias la altura real del header */
+  body{ padding-top: calc(16px + 96px + 12px); }
 }
 
-/* Mobile: 1 column */
+/* Si prefieres ocultar en tamaños muy pequeños (ej. < 420px), puedes hacerlo
+   descomentando la sección siguiente:
+
+@media (max-width: 420px) {
+  .main-nav { display: none; }
+}
+
+*/
+
+/* ==========================
+   HERO / video background
+   ========================== */
+.hero{
+  height:100vh;
+  width:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* Video fills viewport and is centered */
+.bg-video{
+  position:absolute;
+  top:50%;
+  left:50%;
+  min-width:100%;
+  min-height:100%;
+  width:auto;
+  height:auto;
+  transform:translate(-50%,-50%);
+  object-fit:cover;
+  z-index:0;
+  filter: saturate(0.95) contrast(1.02) brightness(0.72);
+}
+
+/* Overlay content to ensure readability */
+.hero-overlay{
+  position:relative;
+  z-index:20;
+  width:100%;
+  max-width:1100px;
+  padding: calc(var(--header-height) + 24px) 20px 40px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  pointer-events:none;
+}
+
+/* Simple centered title */
+.hero-title{
+
+  /*font-size:clamp(16px,4vw,32px);*/
+    font-size:18px;
+  font-weight:500;
+  color:var(--text-on-dark);
+  text-shadow: 0 8px 30px rgba(10,19,45,0.6);
+  margin-top:8px;
+  pointer-events:auto;
+}
+
+/* Note link */
+.note-link{
+  display:inline-block;
+  pointer-events:auto;
+  margin-top:6px;
+  color:var(--uc-primary);
+  background:rgba(255,255,255);
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:700;
+  transition: background .12s ease, transform .12s ease;
+}
+.note-link:hover{background: var(--uc-primary);
+    transform:translateY(-3px);
+    color:#fff;}
+
+/* Small screens: un ajuste adicional por debajo de 600px */
+@media (max-width:600px){
+  .header-inner{padding:0 12px}
+  .hero-overlay{align-items:center;padding-top:100px;text-align:center}
+}
+
+/* ==========================
+   Fin del stylesheet
+   ========================== */
+
+
+
+
+   /* ==========================
+   CHATBOX / ANTIVERSO ELECTORAL
+   ========================== */
+
+.chatbox {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  pointer-events: auto;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+}
+
+.chat-intro {
+  color: #ffffffcc;
+  margin-bottom: 14px;
+}
+
+.chat-form {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.chat-form input {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #111;
+}
+
+.chat-form button {
+  background: var(--uc-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.05s ease, transform 0.05s ease;
+}
+
+.chat-form button:hover {
+  background: #b51524;
+}
+
+.chat-response {
+  margin: 20px;
+  padding: 12px;
+  background: rgba(237, 58, 79);
+  border-radius: 8px;
+  font-size: 15px;
+  color: #fff;
+  font-style: italic;
+  line-height: 1.5;
+  min-height: 50px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chat-response.visible {
+  opacity: 1;
+}
+
+
+/* ==========================
+   CHAT BUTTONS / NÚMEROS DE CANDIDATOS
+   ========================== */
+/* ==========================
+   CHAT BUTTONS / NÚMEROS DE CANDIDATOS
+   ========================== */
+
+.chat-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-placeholder {
+  font-size: 13px;
+  color: #ffffffcc;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.chat-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.chat-buttons button {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: background 0.05s ease, box-shadow 0.05s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.chat-buttons button:hover {
+  background: var(--uc-primary);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.chat-buttons button:active {
+  background: #b51524;
+}
+
+/* Adaptación móvil */
+@media (max-width: 480px) {
+  .chat-buttons {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+
+
+
+
+/* ==========================
+   NOTA DE AUTOR (index2.html)
+   ========================== */
+
+.note-content {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 640px;
+  width: 100%;
+  text-align: left;
+  color: #fff;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+  pointer-events: auto;
+
+}
+
+.note-content h2 {
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.note-content p {
+text-align: center;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #ffffffcc;
+}
+
+.note-links {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.note-links a {
+  color: var(--uc-primary);
+  background: rgba(255,255,255,0.9);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: background .12s ease, transform .12s ease;
+}
+
+.note-links a:hover {
+  background: var(--uc-primary);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Ajuste responsivo */
 @media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        flex-wrap: nowrap;
-        gap: 0.5em;
-        align-items: center;
-        max-width: none;
-    }
-    nav li {
-        flex: 1 1 100%;
-        width: 100%;
-        text-align: center;
-    }
+  .note-content {
+    padding: 20px;
+    font-size: 14px;
+  }
 }

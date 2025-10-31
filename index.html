@@ -1,27 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>ANTIPOEMAS ELECTORALES</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ANTIPOEMAS ELECTORALES</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <img src="./assets/logositioweb2.png" alt="Logo Servicio de AntiVersos Electorales" class="brand-logo">
+      <h1 class="brand-title">Servicio de <br> Antiversos Electorales</h1>
+    </div>
 
-        <h1>ANTIPOEMAS ELECTORALES</h1>
-   <nav>
-    <ul>
-        <li><a href="./src/page1.html">Eduardo Artés</a></li>
-        <li><a href="./src/page2.html">Marco Enríquez-Ominami</a></li>
-        <li><a href="./src/page3.html">José Antonio Kast</a></li>
-        <li><a href="./src/page4.html">Franco Parisi</a></li>
-        <li><a href="./src/page5.html">Jeannette Jara</a></li>
-        <li><a href="./src/page6.html">Johannes Kaiser</a></li>
-        <li><a href="./src/page7.html">Harold Mayne-Nicholls</a></li>
-        <li><a href="./src/page8.html">Evelyn Matthei</a></li>
-    </ul>
-</nav>
-    
-<a href="./index2.html"><i>Nota de autor</i></a>
+    <nav class="main-nav" aria-label="Menú principal">
+      <ul>
+        <li><a href="./src/page1.html">EDUARDO ARTÉS</a></li>
+        <li><a href="./src/page4.html">FRANCO PARISI</a></li>        
+        <li><a href="./src/page6.html">JOHANNES KAISER</a></li>
+        <li><a href="./src/page7.html">HAROLD MAYNE-NICHOLLS</a></li>
+        <li><a href="./src/page5.html">JEANNETTE JARA</a></li>  
+        <li><a href="./src/page8.html">EVELYN MATTHEI</a></li> 
+        <li><a href="./src/page3.html">JOSÉ ANTONIO KAST</a></li>                     
+        <li><a href="./src/page2.html">MARCO ENRÍQUEZ-OMINAMI</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
+  <main class="hero">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="./assets/franja_hydra.mp4" type="video/mp4">
+    </video>
+
+<div class="hero-overlay">
+  <h3 class="hero-title">
+    <i>Entre tanta palabra vacía...</i>
+  </h3>
+
+  <div class="chatbox">
+  <p class="chat-intro">
+   <h4>ATENCIÓN CIUDADANA POÉTICA 24/7</h2>
+  </p>
+
+ <div class="chat-body">
+  <p id="chatPlaceholder" class="chat-placeholder">
+    Presiona un número e infórmate de las propuestas de tu candidato
+  </p>
+
+  <div class="chat-buttons">
+    <button onclick="generateVerse('Franco Parisi')">1</button>
+    <button onclick="generateVerse('Jeannette Jara')">2</button>
+    <button onclick="generateVerse('Marco Enríquez-Ominami')">3</button>
+    <button onclick="generateVerse('Johannes Kaiser')">4</button>
+    <button onclick="generateVerse('José Antonio Kast')">5</button>
+    <button onclick="generateVerse('Eduardo Artés')">6</button>
+    <button onclick="generateVerse('Evelyn Matthei')">7</button>
+    <button onclick="generateVerse('Harold Mayne-Nicholls')">8</button>
+  </div>
+
+  <!-- Aquí agregamos el resultado -->
+  <div id="chatResponse" class="chat-response">
+    <p>Tu verso aparecerá aquí...</p>
+  </div>
+</div>
+
+</div>
+
+  <a class="note-link" href="./index2.html">Nota de autor</a>
+</main>
+<script src="script.js"></script>
 </body>
 </html>

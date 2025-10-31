@@ -1,20 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>ANTIPOEMAS ELECTORALES - Nota de autor</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ANTIPOEMAS ELECTORALES - Nota de autor</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <!-- === HEADER igual al del index principal === -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="./assets/logositioweb2.png" alt="Logo Servicio de AntiVersos Electorales" class="brand-logo">
+        <h1 class="brand-title">Servicio de <br> Antiversos Electorales</h1>
+      </div>
 
-<h2>"Los chilenos no leen..."</h2>        
-   <p>
-<br><br>
-Cada vez que escucho esa frase, recuerdo a un amigo que me dijo: "Los chilenos no leen, pero sí votan". Y es verdad. Votamos sin leer los programas de gobierno, confiando en promesas vacías y discursos populistas. Así que decidí escribir estos antipoemas, no para informar, sino para provocar una reflexión crítica sobre lo que realmente ofrecen nuestros candidatos. Porque si vamos a votar, al menos hagámoslo con conciencia y humor.<br><br>
-   </p>
-    
-<a href="./index.html"><i>Inicio</i></a>
-<a href="https://github.com/visforvioleta/antipoemas-electorales/tree/main" target="_blank"><i>Sobre el proyecto</i></a>
+      <nav class="main-nav" aria-label="Menú principal">
+        <ul>
+          <li><a href="./src/page1.html">EDUARDO ARTÉS</a></li>
+          <li><a href="./src/page4.html">FRANCO PARISI</a></li>        
+          <li><a href="./src/page6.html">JOHANNES KAISER</a></li>
+          <li><a href="./src/page7.html">HAROLD MAYNE-NICHOLLS</a></li>
+          <li><a href="./src/page5.html">JEANNETTE JARA</a></li>  
+          <li><a href="./src/page8.html">EVELYN MATTHEI</a></li> 
+          <li><a href="./src/page3.html">JOSÉ ANTONIO KAST</a></li>                     
+          <li><a href="./src/page2.html">MARCO ENRÍQUEZ-OMINAMI</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <!-- === HERO con video de fondo (igual al index principal) === -->
+  <main class="hero">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="./assets/franja_hydra.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay">
+      <!-- Contenido principal -->
+      <div class="note-content">
+        <h2><i>"LOS CHILENOS NO LEEN..."</i></h2>
+        <p>
+          <br>
+          Cada vez que escucho esa frase, recuerdo a un amigo que me dijo: 
+          “Los chilenos no leen, pero sí votan”. Y es verdad. Votamos sin leer los programas de gobierno, 
+          confiando en promesas vacías y discursos populistas. Así que decidí escribir estos antipoemas, 
+          no para informar, sino para provocar una reflexión crítica sobre lo que realmente ofrecen nuestros candidatos. 
+          Porque si vamos a votar, al menos hagámoslo con conciencia y humor.
+          <br><br>
+        </p>
+
+        <div class="note-links">
+          <a href="./index.html"><i>Inicio</i></a>
+          <a href="https://github.com/visforvioleta/antipoemas-electorales/tree/main" target="_blank"><i>Sobre el proyecto</i></a>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
