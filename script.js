@@ -1,4 +1,4 @@
-// === script.js completo ===
+// === script.js extendido ===
 
 // Cargar Tracery dinámicamente
 const traceryScript = document.createElement('script');
@@ -6,7 +6,7 @@ traceryScript.src = "https://cdn.jsdelivr.net/npm/tracery-grammar@2.7.3/tracery.
 document.head.appendChild(traceryScript);
 
 traceryScript.onload = () => {
-  // Diccionarios de Tracery (verbos + frases)
+  // === Gramática base ===
   const grammarObj = {
     "verb": [
       "se compromete a",
@@ -18,52 +18,117 @@ traceryScript.onload = () => {
       "apostará por",
       "implementará",
       "quiere construir",
-      "invocará el poder de"
+      "invocará el poder de",
+      "anuncia sin anestesia",
+      "declama entre aplausos y bostezos",
+      "promete bajo juramento dudoso"
     ],
-    "phrase": [
+    "absurdismo": [
+      "el sol que no paga impuestos",
       "la patria del absurdo",
       "el progreso con sabor a empanada fría",
-      "un futuro sin promesas ni finales felices",
-      "la economía del desencanto",
-      "la educación sentimental del votante promedio",
-      "el retorno de la esperanza en horario prime",
       "la transparencia de los espejos rotos",
-      "la igualdad de las oportunidades imposibles",
+      "la economía del desencanto",
+      "la reforma tributaria del alma",
+      "la educación sentimental del votante promedio",
       "la poesía como política de Estado",
-      "la reforma tributaria del alma"
+      "un país donde los relojes votan",
+      "la igualdad de las oportunidades imposibles"
+    ],
+    "final": [
+      "perfectamente bien.",
+      "yo no respondo por las molestias causadas.",
+      "el cielo se está cayendo a pedazos.",
+      "no sé si hablo conmigo o con el enchufe.",
+      "y sin embargo, seguimos votando."
     ]
   };
 
-  // Crear la gramática
+  // === Diccionario temático por candidato ===
+  const candidateThemes = {
+    "Eduardo Artés": [
+      "el pueblo organizado",
+      "la justicia social",
+      "el trabajo digno",
+      "la educación gratuita",
+      "el fin del neoliberalismo"
+    ],
+    "Franco Parisi": [
+      "la economía digital",
+      "el emprendimiento",
+      "los impuestos justos",
+      "la libertad financiera",
+      "el chileno promedio endeudado"
+    ],
+    "Johannes Kaiser": [
+      "la libertad de expresión",
+      "el orden perdido",
+      "la familia tradicional",
+      "la batalla cultural",
+      "el miedo al caos"
+    ],
+    "Harold Mayne-Nicholls": [
+      "el deporte como salvación",
+      "la cancha pareja",
+      "el fair play social",
+      "los niños primero en la fila",
+      "el país que entrena todos los días"
+    ],
+    "Jeannette Jara": [
+      "la seguridad social",
+      "la dignidad laboral",
+      "el Estado presente",
+      "las pensiones decentes",
+      "la igualdad de género"
+    ],
+    "Evelyn Matthei": [
+      "el orden y el progreso",
+      "la eficiencia administrativa",
+      "el combate al delito",
+      "la gestión sin poesía",
+      "la experiencia de la realidad"
+    ],
+    "José Antonio Kast": [
+      "la patria sin fronteras abiertas",
+      "la autoridad y el orden",
+      "la familia como trinchera",
+      "la expulsión inmediata",
+      "la fe en los valores eternos"
+    ],
+    "Marco Enríquez-Ominami": [
+      "la innovación social",
+      "la modernidad líquida",
+      "la transparencia de las promesas",
+      "la reinvención del progresismo",
+      "el cine político que nunca se filmó"
+    ]
+  };
+
+  // Crear gramática de Tracery
   const grammar = tracery.createGrammar(grammarObj);
 
-  // Función pública que se llama desde los botones en el HTML
+  // === FUNCIÓN PRINCIPAL ===
   window.generateVerse = function(candidate) {
-    // Generar partes con Tracery
+    const themes = candidateThemes[candidate] || ["las promesas vacías"];
     const verb = grammar.flatten("#verb#");
-    const phrase = grammar.flatten("#phrase#");
+    const absurd = grammar.flatten("#absurdismo#");
+    const theme = themes[Math.floor(Math.random() * themes.length)];
+    const ending = grammar.flatten("#final#");
 
-    // Componer el verso final
-    const verse = `${candidate} ${verb} ${phrase}.`;
+    // Componer antiverso parriano
+    const verse = `${candidate} ${verb} ${theme}, pero termina hablando de ${absurd}. ${ending}`;
 
-    // Mostrar en el contenedor #chatResponse (con clase .visible para animar)
+    // Mostrar en pantalla
     const responseEl = document.getElementById("chatResponse");
-    if (!responseEl) {
-      console.warn("No existe el elemento #chatResponse en el DOM");
-      return;
-    }
+    if (!responseEl) return console.warn("No existe el elemento #chatResponse en el DOM");
 
-    // Reiniciar la clase .visible para poder reproducir la animación en cada clic
     responseEl.classList.remove("visible");
-    // Force reflow para reiniciar transición/animación
-    void responseEl.offsetWidth;
-
-    // Insertar el verso (escape mínimo)
+    void responseEl.offsetWidth; // Reiniciar animación
     responseEl.innerHTML = `<p>${escapeHtml(verse)}</p>`;
     responseEl.classList.add("visible");
   };
 
-  // Utilidad pequeña para escapar HTML (por seguridad si luego metes contenido variable)
+  // === Utilidad para escapar HTML ===
   function escapeHtml(str) {
     return String(str)
       .replace(/&/g, "&amp;")

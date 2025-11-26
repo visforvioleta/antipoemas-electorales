@@ -6,30 +6,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Breve descripción de la página">
     <title>Chile que cumple (sin auditar)</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS (ruta corregida) -->
+    <link rel="stylesheet" href="/stylesrc.css">
 </head>
+
 <body>
-<blockquote cite="https://centrocompetencia.com/wp-content/uploads/2025/09/Programa_Jeannette_Jara_2025.pdf">
-Antipoema basado en el programa de gobierno de <a href="https://centrocompetencia.com/wp-content/uploads/2025/09/Programa_Jeannette_Jara_2025.pdf" target="_blank">Jeannette Jara</a>.
-</blockquote>   
 
-   <p>
-    <i>Señoras y señores:<br> el Estado promete orden,<br> el mercado promete progreso,<br> y yo prometo que mañana lloverá.</i><br><br>
+    <!-- =========================
+         HEADER – IDÉNTICO AL HOME
+         ========================= -->
+    <header class="site-header">
+        <div class="header-inner">
 
-<i>Hablan de alianzas público-privadas<br> como si fueran matrimonios felices,<br> pero todos sabemos<br> que hasta las mejores parejas<br> terminan discutiendo<br> por la cuenta de la luz.</i><br><br>
+            <div class="brand">
+                <img src="/assets/logositioweb2.png" alt="Logo Servicio de AntiVersos Electorales" class="brand-logo">
+                <h1 class="brand-title">Servicio de <br> Antiversos Electorales</h1>
+            </div>
 
-<i>La seguridad será total, dicen,<br> con inteligencia criminal,<br> pero yo sigo perdiendo<br> las llaves de mi casa.</i><br><br>
+            <nav class="main-nav" aria-label="Menú principal">
+                <ul>
+                    <li><a href="/src/page1.html">EDUARDO ARTÉS</a></li>
+                    <li><a href="/src/page4.html">FRANCO PARISI</a></li>
+                    <li><a href="/src/page6.html">JOHANNES KAISER</a></li>
+                    <li><a href="/src/page7.html">HAROLD MAYNE-NICHOLLS</a></li>
+                    <li><a href="/src/page5.html">JEANNETTE JARA</a></li>
+                    <li><a href="/src/page8.html">EVELYN MATTHEI</a></li>
+                    <li><a href="/src/page3.html">JOSÉ ANTONIO KAST</a></li>
+                    <li><a href="/src/page2.html">MARCO ENRÍQUEZ-OMINAMI</a></li>
+                </ul>
+            </nav>
 
-<i>La salud será universal,<br> eficiente, humana,<br> aunque todavía hay que hacer fila<br> para comprar un paracetamol.</i><br><br>
+        </div>
+    </header>
 
-<i>La educación será de calidad,<br> excelente, igualitaria,<br> pero los niños siguen aprendiendo<br> que la tiza se borra con la manga.</i><br><br>
+    <!-- =========================
+         CONTENIDO CENTRAL
+         ========================= -->
+    <main class="poem-container">
 
-<i>La transición verde<br> salvará al planeta,<br> aunque el basurero de la esquina<br> sigue rebalsando de plástico.</i><br><br>
+        <!-- VIDEO -->
+        <div class="video-wrapper">
+           <iframe width="640" height="400" src="https://www.youtube.com/embed/VMNEYHjwRIk?si=BSP_LC22EHGrZZ3Y&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
 
-<i>Y las pensiones, ah, las pensiones,<br> serán solidarias,<br> intergeneracionales,<br> como si la vejez fuera un festival<br> y no una silla coja en la cocina.</i><br><br>
+        <!-- POEMA -->
+        <div class="poem-box">
+            <p>
+    <i>Señoras y señores:<br> el Estado promete orden,<br> el mercado promete progreso,<br> y yo prometo que mañana lloverá.</i><br>
+
+<i>Hablan de alianzas público-privadas<br> como si fueran matrimonios felices,<br> pero todos sabemos<br> que hasta las mejores parejas<br> terminan discutiendo<br> por la cuenta de la luz.</i><br>
+
+<i>La seguridad será total, dicen,<br> con inteligencia criminal,<br> pero yo sigo perdiendo<br> las llaves de mi casa.</i><br>
+
+<i>La salud será universal,<br> eficiente, humana,<br> aunque todavía hay que hacer fila<br> para comprar un paracetamol.</i><br>
+
+<i>La educación será de calidad,<br> excelente, igualitaria,<br> pero los niños siguen aprendiendo<br> que la tiza se borra con la manga.</i><br>
+
+<i>La transición verde<br> salvará al planeta,<br> aunque el basurero de la esquina<br> sigue rebalsando de plástico.</i><br>
+
+<i>Y las pensiones, ah, las pensiones,<br> serán solidarias,<br> intergeneracionales,<br> como si la vejez fuera un festival<br> y no una silla coja en la cocina.</i><br>
 
 <i>En resumen:<br> Chile será un país de bienestar,<br> orden y progreso.<br> Lo dice el papel.<br> Y el papel, como todos sabemos,<br> aguanta cualquier cosa.</i><br>
    </p>
+        </div>
 
-<a href="../index.html">MENU</a>
+        <blockquote class="poem-description" cite="https://centrocompetencia.com/wp-content/uploads/2025/09/Programa_Jeannette_Jara_2025.pdf">
+Antipoema basado en el programa de gobierno de <a href="https://centrocompetencia.com/wp-content/uploads/2025/09/Programa_Jeannette_Jara_2025.pdf" target="_blank">Jeannette Jara</a>.
+</blockquote>   
+
+    </main>
+
+    <!-- =========================
+         BOTONES FLOTANTES (HOME Y PROYECTO)
+         MISMO ESTILO QUE EN TU INDEX
+         ========================= -->
+    <a href="/index.html" class="floating-btn left">Home</a>
+    <a href="/index2.html" class="floating-btn right">Sobre el proyecto</a>
+
 </body>
 </html>
+
+
+
